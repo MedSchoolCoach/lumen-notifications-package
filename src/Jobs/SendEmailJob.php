@@ -7,7 +7,7 @@ use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use MedSchoolCoach\LumenNotifier\Models\Email;
+use MedSchoolCoach\LumenNotifications\Models\Email;
 
 class SendEmailJob implements ShouldQueue
 {
@@ -27,7 +27,7 @@ class SendEmailJob implements ShouldQueue
         $this->email = $email;
 
         $this->onConnection('sqs');
-        $this->onQueue('test-queue');
+        $this->onQueue('emails');
     }
 
     /**
