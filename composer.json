@@ -1,0 +1,21 @@
+{
+    "name": "medschoolcoach/lumen-notifications-package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andrii Ostashuk",
+            "email": "devostand@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "aws/aws-sdk-php": "^3.198",
+        "illuminate/bus": "^8.64",
+        "illuminate/queue": "^8.64"
+    },
+    "autoload": {
+        "psr-4": {
+            "MedSchoolCoach\\LumenNotifications\\": "src/"
+        }
+    }
+}
