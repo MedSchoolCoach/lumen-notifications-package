@@ -22,12 +22,12 @@ class SendEmailJob implements ShouldQueue
      * SendEmailNotification constructor.
      * @param Email $email
      */
-    public function __construct(Email $email)
+    public function __construct(Email $email, string $connection = 'sqs', string $queue = 'emails')
     {
         $this->email = $email;
 
-        $this->onConnection('sqs');
-        $this->onQueue('emails');
+        $this->onConnection($connection);
+        $this->onQueue($queue);
     }
 
     /**
