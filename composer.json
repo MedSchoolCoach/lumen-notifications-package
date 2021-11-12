@@ -9,9 +9,18 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "aws/aws-php-sns-message-validator": "^1.6",
         "aws/aws-sdk-php": "^3.198",
         "illuminate/bus": "^8.64",
-        "illuminate/queue": "^8.64"
+        "illuminate/queue": "^8.64",
+        "illuminate/notifications": "^8.70"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MedSchoolCoach\\LumenNotifications\\SnsServiceProvider"
+            ]
+        }
     },
     "autoload": {
         "psr-4": {

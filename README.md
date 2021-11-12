@@ -1,4 +1,4 @@
-# How to use
+# How to use SQS
 
 ## Producer
 
@@ -50,3 +50,44 @@ If you want to specify another `connection` or `queue` use:
 ```
 php artisan queue:work {connection_name} --queue={queue_name}
 ```
+
+# How to use SNS
+
+## Producer
+
+1. Set up notification configuration, for example for `sns` channel
+```
+SNS_KEY=YOUR_SNS_KEY
+SNS_SECRET=YOUR_SNS_SECRET
+SNS_REGION=YOUR_SNS_REGION
+SNS_TOPIC_ARN=YOUR_DEFAULT_SNS_TOPIC_ARN
+```
+2. Create an instance of provided notifiable models, for example `SubscriptionStatus`
+3. Fill it with data
+```
+$subStatus = new SubscriptionStatus({user_id}, {subscription_id}, {plan_id}, {status});
+```
+4. Notify using created model with appropriate notification, for example `SubscriptionStatusChangedNotification`:
+```
+$subStatus->notify(new SubscriptionStatusChangedNotification());
+```
+
+NOTE: `SNS_TOPIC_ARN` is optional and stands for default values.
+If you want to specify another `topic` use:
+```
+$subStatus->notify(new SubscriptionStatusChangedNotification({subject}, {topic}));
+```
+
+## Consumer
+
+1. Create endpoint for handling notifications or if using queue follow `How to use SQS` guide
+2. For `SubscriptionStatus` register endpoint, for example `/sns/subscriptions`
+3. Retrieve message `$snsService->retireve();`
+4. Provide endpoint confirmation:
+```
+if ($this->snsService->isSubscriptionConfirmation($message)) {
+    $this->snsService->confirmSubscription($message);
+    return response(null);
+}
+```
+5. Get message content `$this->snsService->getMessageContent($message)`
