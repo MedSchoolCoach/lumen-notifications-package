@@ -17,7 +17,7 @@ class Email
     /**
      * @var string
      */
-    public string $from;
+    public ?string $from;
 
     /**
      * @var array|null
