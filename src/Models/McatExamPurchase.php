@@ -2,6 +2,8 @@
 
 namespace MedSchoolCoach\LumenNotifications\Models;
 
+use Illuminate\Notifications\Notifiable;
+
 class McatExamPurchase
 {
     use Notifiable;
