@@ -8,12 +8,12 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "aws/aws-php-sns-message-validator": "^1.6",
-        "aws/aws-sdk-php": "^3.198",
-        "illuminate/bus": "^8.64",
-        "illuminate/queue": "^8.64",
-        "illuminate/notifications": "^8.70"
+        "php": "^8.2",
+        "aws/aws-php-sns-message-validator": "^1.9",
+        "aws/aws-sdk-php": "^3.295",
+        "illuminate/bus": "^10.0",
+        "illuminate/queue": "^10.0",
+        "illuminate/notifications": "^10.0"
     },
     "extra": {
         "laravel": {
