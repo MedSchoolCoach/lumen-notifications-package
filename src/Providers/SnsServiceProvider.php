@@ -19,7 +19,6 @@ class SnsServiceProvider extends NotificationServiceProvider
     {
         parent::register();
 
-        $this->app->configure('sns');
         $this->mergeConfigFrom(realpath(__DIR__.'/../../config/sns.php'), 'sns');
 
         $this->app->when(SnsChannel::class)
