@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MedSchoolCoach\\LumenNotifications\\SnsServiceProvider"
+                "MedSchoolCoach\\LumenNotifications\\Providers\\SnsServiceProvider"
             ]
         }
     },
